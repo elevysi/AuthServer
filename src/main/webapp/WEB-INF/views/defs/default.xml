@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+<definition name="rootBlog1.9">
+
+	<put-attribute name="title" value="Blog" cascade="true"/>
+	<put-attribute name="topbar" value="/WEB-INF/views/layout1.9/root/topbar.jsp" />
+	<put-attribute name="navbar" value="/WEB-INF/views/layout1.9/root/navbar.jsp" />
+	<put-attribute name="footer" value="/WEB-INF/views/layout1.9/root/footer.jsp" />
+	<put-attribute name="headTag" value="/WEB-INF/views/layout1.9/root/fileHead.jsp" />
+	<put-attribute name="profileLeftbar" value="/WEB-INF/views/layout1.9/profile/leftbar.jsp" cascade="true"/>
+	<put-attribute name="bodyjs" value="/WEB-INF/views/layout1.9/root/globaljs.jsp" cascade="true"/>
+	<put-attribute name="breadcrumb" value="/WEB-INF/views/layout1.9/root/breadcrumb.jsp" cascade="true" />
+	
+</definition>
+
+<definition name="commonBlog1.9" extends="rootBlog1.9" template="/WEB-INF/views/layout1.9/blog/default.jsp">
+   <put-attribute name="title" value="Blog" cascade="true"/>
+   <put-attribute name="pagination" value="/WEB-INF/views/layout1.9/root/pagination.jsp" cascade="true"/>
+</definition>
+
+<definition name="loginLayout" template="/WEB-INF/views/layout/login.jsp">
+  <put-attribute name="title" value="Sign In" />
+</definition>
+
+<definition name="userLogin" extends="loginLayout">
+  <put-attribute name="title" value="Sign In" />
+  <put-attribute name="body" value="/WEB-INF/views/jsp/users/login.jsp" />
+</definition>
+
+
+<definition name="userIndex" extends="commonBlog1.9">
+    <put-attribute name="title" value="Users" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/users/index.jsp" />
+</definition>
+
+<definition name="userAdd" extends="commonBlog1.9">
+  <put-attribute name="title" value="Add new User" />
+  <put-attribute name="body" value="/WEB-INF/views/jsp/users/add.jsp" />
+</definition>
+
+<definition name="userEdit" extends="commonBlog1.9">
+  <put-attribute name="title" value="Users" />
+  <put-attribute name="body" value="/WEB-INF/views/jsp/users/edit.jsp" />
+</definition>
+
+
+
+<!-- Erros Exceptions -->
+
+<definition name="errorout" template="/WEB-INF/views/layout/errorout.jsp">
+    <put-attribute name="title" value="Error" />
+</definition>
+
+
+<definition name="pageDenied" extends="errorout">
+    <put-attribute name="title" value="Access Denied to this Page" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/users/accessdenied.jsp" />
+</definition>
+
+  
+</tiles-definitions>
